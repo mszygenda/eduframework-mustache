@@ -1,13 +1,15 @@
-var mu = require('mu')
+var util = require('util');
+var mu = require('mu2')
 
 var MustacheTemplateEngine = function() {
-  mu.templateRoot = Core.Config.ViewPath
-  
+
   this.render = function(viewFile, viewContext, output) {
-    mu.render(viewFile, viewContext.viewModel, {}, function(err, content) {
-      output.write(content)
-    }) 
+    console.log('rendering ' + viewFile);
+    stream = mu.compileAndRender(viewFile, viewContext.viewModel)
+
+    util.pump(stream, output)
   }
 }
 
+sys.inherits(MustacheTemplateEngine, events.EventEmitter)
 exports.MustacheTemplateEngine = MustacheTemplateEngine
