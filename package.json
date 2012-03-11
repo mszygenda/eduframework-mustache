@@ -1,0 +1,20 @@
+{
+  "name": "jfs-mustache",
+  "description": "Mustache implementation of template engine for jfs framewok",
+  "keywords": [
+    "template",
+    "mustache",
+    "jfs"
+  ],
+  "version": "0.1",
+  "homepage": "http://sigma.inf.ug.edu.pl/~mszygenda",
+  "main": "./jfs-mustache.js",
+  "author": {
+    "name": "Mateusz Szygenda",
+    "email": "mateusz.szygenda@gmail.com"
+  },
+  "dependencies": {
+    "mu": ">= 0.5.2"
+  }
+}
+
