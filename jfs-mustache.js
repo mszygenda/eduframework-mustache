@@ -1,5 +1,5 @@
 var util = require('util');
-var mu = require('mu2')
+var mu = require('mu2');
 
 var MustacheTemplateEngine = function() {
 
