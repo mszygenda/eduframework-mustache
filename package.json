@@ -7,7 +7,7 @@
     "ef",
     "eduframework"
   ],
-  "version": "0.1",
+  "version": "0.0.1",
   "homepage": "http://sigma.inf.ug.edu.pl/~mszygenda",
   "main": "./ef-mustache.js",
   "author": {
