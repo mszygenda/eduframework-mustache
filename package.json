@@ -15,7 +15,8 @@
     "email": "mateusz.szygenda@gmail.com"
   },
   "dependencies": {
-    "mu2": ">= 0.5.2"
+    "mu2": ">= 0.5.2",
+    "memorystream": "= 0.1.0"
   }
 }
 
