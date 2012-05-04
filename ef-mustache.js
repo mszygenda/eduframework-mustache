@@ -69,4 +69,12 @@ MustacheTemplateEngine.renderPartial = function (name, partial, callback) {
   });
 };
 
+exports.dependencies = function () {
+  return [EduFramework.ViewEngine];
+};
+
+exports.initialize = function () {
+  EduFramework.ViewEngine.TemplateEngineManager.register('mustache', MustacheTemplateEngine);
+};
+
 exports.MustacheTemplateEngine = MustacheTemplateEngine;
