@@ -12,7 +12,7 @@ MustacheTemplateEngine.render = function (view, output, success) {
   var self = this, stream = null, viewFile;
   viewFile = view.getViewPath();
 
-  console.log('rendering template ' + viewFile);
+  EduFramework.logger.info('rendering template ' + viewFile);
 
   this.renderPartials(view, function () {
     stream = mu.compileAndRender(viewFile, view.viewModel);
