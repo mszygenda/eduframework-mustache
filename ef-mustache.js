@@ -1,12 +1,11 @@
 /*jslint node: true, sloppy: true, vars: true, indent: 2 */
 /*global require: false, exports: false, console: false, EduFramework: false */
 
-var MemoryStream = require('memorystream');
-var util = require('util');
-var events = require('events');
-var mu = require('mu2');
-
-var MustacheTemplateEngine = Object.create(events.EventEmitter.prototype);
+var MemoryStream = require('memorystream'),
+    util = require('util'),
+    events = require('events'),
+    mu = require('mu2'),
+    MustacheTemplateEngine = Object.create(events.EventEmitter.prototype);
 
 MustacheTemplateEngine.render = function (view, output, success) {
   var self = this, stream = null, viewFile;
@@ -74,6 +73,8 @@ exports.dependencies = function () {
 };
 
 exports.initialize = function () {
+  mu.root = EduFramework.Config.core.viewsPath;
+
   EduFramework.ViewEngine.TemplateEngineManager.register('mustache', MustacheTemplateEngine);
 };
 
