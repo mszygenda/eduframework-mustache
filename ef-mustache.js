@@ -33,21 +33,22 @@ MustacheTemplateEngine.pumpMustacheStreamToOut = function (muStream, out) {
 };
 
 MustacheTemplateEngine.renderPartials = function (view, callback) {
-  var partialName, partial, renderedPartials = 0, partialCount = 0;
+  var partialName, partial, renderedPartials = 0, partialCount = 0, partialRendered;
+
+  partialRendered = function (name, data) {
+    renderedPartials += 1;
+    view.viewModel[name] = data;
+
+    if (renderedPartials === partialCount) {
+      callback();
+    }
+  };
 
   for (partialName in view.partials) {
-    partial = view.partials[partialName];    
-
-    if (typeof partial !== 'function') {
+    if (typeof view.partials[partialName] !== 'function') {
+      partial = view.partials[partialName];    
       partialCount += 1;
-      this.renderPartial(partialName, partial, function (name, data) {
-        renderedPartials += 1;
-        view.viewModel[name] = data;
-
-        if (renderedPartials === partialCount) {
-          callback();
-        }
-      });
+      this.renderPartial(partialName, partial, partialRendered);
     }
   }
 
